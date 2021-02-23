@@ -1,0 +1,31 @@
+.btn {
+  border: none;
+  padding: 1.5rem 3.5rem;
+  border-radius: 3rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--product {
+    background: hsl(176, 72%, 28%);
+
+    &:hover {
+      background: hsla(176, 73%, 32%, 0.979);
+    }
+  }
+
+  &--bookmark {
+    position: relative;
+    padding-left: 5rem;
+    color: hsl(0, 0%, 48%);
+    background: rgb(241, 233, 233);
+    display: flex;
+    align-items: center;
+  }
+}

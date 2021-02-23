@@ -1,0 +1,45 @@
+.main {
+  display: grid;
+  place-items: center;
+}
+
+// Container for all
+.container {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid hsla(0, 0%, 48%, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+  padding: 5rem;
+  text-align: center;
+}
+
+// Product Section
+.product {
+  padding: 0 5rem 5rem;
+  transform: translateY(-8rem);
+
+  &__logo-box {
+    position: absolute;
+    top: -3rem;
+    left: 45%;
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--icon {
+    width: 5rem;
+    height: 5rem;
+    fill: hsl(0, 0%, 48%);
+    position: absolute;
+    left: -1rem;
+  }
+}
+
+// Data section
+
+// About section

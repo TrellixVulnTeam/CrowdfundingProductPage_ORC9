@@ -1,0 +1,30 @@
+.navigation {
+  padding: 3rem 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    align-items: center;
+
+    &--item {
+      &:not(:last-of-type) {
+        padding-right: 3rem;
+      }
+    }
+
+    &--link:link,
+    &--link:visited {
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.2s;
+    }
+
+    &--link:hover {
+      color: hsl(176, 50%, 47%);
+    }
+  }
+}
