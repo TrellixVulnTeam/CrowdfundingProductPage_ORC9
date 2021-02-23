@@ -67,6 +67,9 @@ body {
     background: #f1e9e9;
     display: flex;
     align-items: center; }
+  .btn--bookmarked {
+    color: #147b74;
+    background: rgba(20, 123, 116, 0.13); }
 
 .header {
   height: 50vh;

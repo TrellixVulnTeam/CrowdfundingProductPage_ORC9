@@ -28,4 +28,9 @@
     display: flex;
     align-items: center;
   }
+
+  &--bookmarked {
+    color: hsl(176, 72%, 28%);
+    background: hsla(176, 72%, 28%, 0.13);
+  }
 }
