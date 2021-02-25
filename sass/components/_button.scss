@@ -33,4 +33,16 @@
     color: hsl(176, 72%, 28%);
     background: hsla(176, 72%, 28%, 0.13);
   }
+
+  &--bamboo-stand {
+    background: hsl(176, 72%, 28%);
+  }
+
+  &--black-edition {
+    background: hsl(176, 50%, 47%);
+  }
+
+  &--out-of-stock {
+    background: hsla(0, 0%, 48%, 0.664);
+  }
 }
