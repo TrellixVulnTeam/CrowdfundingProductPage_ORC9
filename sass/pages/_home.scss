@@ -6,9 +6,9 @@
 
 // Container for all
 .container {
+  position: relative;
   max-width: 70rem;
   width: 100%;
-  position: relative;
   background-color: #fff;
   border: 1px solid hsla(0, 0%, 48%, 0.2);
   border-radius: 1rem;

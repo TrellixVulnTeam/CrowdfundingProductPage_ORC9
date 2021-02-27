@@ -45,4 +45,12 @@
   &--out-of-stock {
     background: hsla(0, 0%, 48%, 0.664);
   }
+
+  &--success {
+    background: hsl(176, 72%, 28%);
+
+    &:hover {
+      background: hsl(176, 50%, 47%);
+    }
+  }
 }
