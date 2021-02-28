@@ -88,6 +88,16 @@ body {
     background: #147b74; }
     .btn--success:hover {
       background: #3cb4ac; }
+  .btn--select, .btn--pledge {
+    cursor: pointer; }
+  .btn--select {
+    border: 0.5px solid rgba(122, 122, 122, 0.342);
+    background: transparent;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: grid;
+    place-items: center;
+    justify-self: center; }
 
 .modal__success, .modal__project {
   background: #fff;
@@ -127,6 +137,13 @@ body {
 .modal__project {
   top: 50%;
   max-width: 70rem; }
+
+.modal__box {
+  grid-template-columns: min-content 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem; }
+  .modal__box p {
+    grid-column: 2 / 3; }
 
 .header {
   height: 50vh;
@@ -168,13 +185,13 @@ body {
   padding: 5rem; }
 
 .box,
-.modal-box {
+.modal__box {
   border: 0.5px solid rgba(122, 122, 122, 0.2);
   border-radius: 1rem;
-  padding: 3rem; }
+  padding: 3rem;
+  display: grid; }
 
 .box {
-  display: grid;
   grid-template-columns: repeat(2, 1fr); }
 
 .product {

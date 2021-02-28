@@ -46,4 +46,14 @@
     top: 50%;
     max-width: 70rem;
   }
+
+  &__box {
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
+
+    p {
+      grid-column: 2 / 3;
+    }
+  }
 }
