@@ -49,11 +49,22 @@
 
   &__box {
     grid-template-columns: min-content 1fr;
+    align-items: center;
     grid-column-gap: 2rem;
     grid-row-gap: 1rem;
 
     p {
       grid-column: 2 / 3;
     }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  // JavaScript classes
+  &__box--active &__box {
+    border: 0.3rem solid hsl(176, 72%, 28%);
   }
 }

@@ -53,6 +53,9 @@ body {
 .mt-hg {
   margin-top: 5rem; }
 
+.ml-sm {
+  margin-left: 1.5rem; }
+
 .btn {
   border: none;
   padding: 1.5rem 3.5rem;
@@ -62,7 +65,7 @@ body {
   font-size: 1.7rem;
   cursor: pointer;
   transition: background-color 0.2s; }
-  .btn:focus {
+  .btn:focus, .btn--radio:focus {
     outline: none; }
   .btn--product {
     background: #147b74; }
@@ -75,9 +78,6 @@ body {
     background: #f1e9e9;
     display: flex;
     align-items: center; }
-  .btn--bookmarked {
-    color: #147b74;
-    background: rgba(20, 123, 116, 0.13); }
   .btn--bamboo-stand {
     background: #147b74; }
   .btn--black-edition {
@@ -90,14 +90,35 @@ body {
       background: #3cb4ac; }
   .btn--select, .btn--pledge {
     cursor: pointer; }
+  .btn--select:focus, .btn--pledge:focus {
+    outline: none; }
   .btn--select {
+    position: relative;
     border: 0.5px solid rgba(122, 122, 122, 0.342);
     background: transparent;
-    border-radius: 50%;
-    padding: 0.5rem;
-    display: grid;
-    place-items: center;
-    justify-self: center; }
+    border-radius: 100%;
+    width: 2.1rem;
+    height: 2.1rem;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .btn--radio {
+    opacity: 0;
+    cursor: pointer; }
+  .btn--radio:checked + span {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    background-color: #3cb4ac;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .btn--bookmarked {
+    color: #147b74;
+    background: rgba(20, 123, 116, 0.13); }
 
 .modal__success, .modal__project {
   background: #fff;
@@ -140,10 +161,19 @@ body {
 
 .modal__box {
   grid-template-columns: min-content 1fr;
+  align-items: center;
   grid-column-gap: 2rem;
   grid-row-gap: 1rem; }
   .modal__box p {
     grid-column: 2 / 3; }
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.modal__box--active .modal__box {
+  border: 0.3rem solid #147b74; }
 
 .header {
   height: 50vh;

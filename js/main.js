@@ -1,5 +1,6 @@
 "use strict";
 const bookmarkBtn = document.querySelector(".js-bookmark");
+const pledgeBtn = document.querySelectorAll(".js-pledge-btn");
 
 // Applying changes to bookmark button
 function bookmarked() {
@@ -26,3 +27,16 @@ function bookmarked() {
 
 // Event Handlers
 bookmarkBtn.addEventListener("click", bookmarked);
+
+const radioBtn = document.querySelectorAll(".btn--radio");
+
+radioBtn.forEach((btn) => {
+  const parent = btn.parentElement.parentElement.parentElement;
+  parent.classList.remove("modal__box--active");
+
+  btn.addEventListener("click", function () {
+    if (btn.checked) {
+      parent.classList.add("modal__box--active");
+    }
+  });
+});
