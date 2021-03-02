@@ -13,12 +13,25 @@
     outline: none;
   }
 
-  &--product {
+  &--green {
     background: hsl(176, 72%, 28%);
 
     &:hover {
       background: hsla(176, 73%, 32%, 0.979);
     }
+  }
+
+  &--cyan {
+    background: hsl(176, 50%, 47%);
+
+    &:hover {
+      background: hsla(176, 73%, 32%, 0.979);
+    }
+  }
+
+  &--disabled {
+    background: hsla(0, 0%, 48%, 0.664);
+    cursor: not-allowed;
   }
 
   &--bookmark {
@@ -30,24 +43,10 @@
     align-items: center;
   }
 
-  &--bamboo-stand {
-    background: hsl(176, 72%, 28%);
-  }
-
-  &--black-edition {
-    background: hsl(176, 50%, 47%);
-  }
-
-  &--out-of-stock {
-    background: hsla(0, 0%, 48%, 0.664);
-  }
-
-  &--success {
-    background: hsl(176, 72%, 28%);
-
-    &:hover {
-      background: hsl(176, 50%, 47%);
-    }
+  &--close {
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   &--select,
@@ -65,9 +64,8 @@
     border: 0.5px solid hsla(0, 0%, 48%, 0.342);
     background: transparent;
     border-radius: 100%;
-    width: 2.1rem;
-    height: 2.1rem;
-    justify-self: center;
+    width: 2.2rem;
+    height: 2.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,9 +77,8 @@
   }
 
   &--radio:checked + span {
-    display: block;
-    width: 1rem;
-    height: 1rem;
+    width: 1.1rem;
+    height: 1.1rem;
     border-radius: 100%;
     background-color: hsl(176, 50%, 47%);
     position: absolute;

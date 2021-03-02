@@ -67,10 +67,17 @@ body {
   transition: background-color 0.2s; }
   .btn:focus, .btn--radio:focus {
     outline: none; }
-  .btn--product {
+  .btn--green {
     background: #147b74; }
-    .btn--product:hover {
+    .btn--green:hover {
       background: rgba(22, 141, 133, 0.979); }
+  .btn--cyan {
+    background: #3cb4ac; }
+    .btn--cyan:hover {
+      background: rgba(22, 141, 133, 0.979); }
+  .btn--disabled {
+    background: rgba(122, 122, 122, 0.664);
+    cursor: not-allowed; }
   .btn--bookmark {
     position: relative;
     padding-left: 5rem;
@@ -78,16 +85,10 @@ body {
     background: #f1e9e9;
     display: flex;
     align-items: center; }
-  .btn--bamboo-stand {
-    background: #147b74; }
-  .btn--black-edition {
-    background: #3cb4ac; }
-  .btn--out-of-stock {
-    background: rgba(122, 122, 122, 0.664); }
-  .btn--success {
-    background: #147b74; }
-    .btn--success:hover {
-      background: #3cb4ac; }
+  .btn--close {
+    background: none;
+    border: none;
+    cursor: pointer; }
   .btn--select, .btn--pledge {
     cursor: pointer; }
   .btn--select:focus, .btn--pledge:focus {
@@ -97,9 +98,8 @@ body {
     border: 0.5px solid rgba(122, 122, 122, 0.342);
     background: transparent;
     border-radius: 100%;
-    width: 2.1rem;
-    height: 2.1rem;
-    justify-self: center;
+    width: 2.2rem;
+    height: 2.2rem;
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -107,9 +107,8 @@ body {
     opacity: 0;
     cursor: pointer; }
   .btn--radio:checked + span {
-    display: block;
-    width: 1rem;
-    height: 1rem;
+    width: 1.1rem;
+    height: 1.1rem;
     border-radius: 100%;
     background-color: #3cb4ac;
     position: absolute;
@@ -125,18 +124,19 @@ body {
   border-radius: 1rem;
   width: 100%;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
-  padding: 5rem;
+  padding: 3rem;
   position: fixed;
+  top: 50%;
   left: 50%;
   z-index: 10;
-  transform: translate(-50%, -50%); }
+  transition: all 0.3s;
+  visibility: hidden;
+  transform: translate(-50%, -50%) scale(0); }
 
 .modal__success {
-  top: 70%;
   max-width: 45rem;
   text-align: center;
-  visibility: hidden;
-  transform: scale(0); }
+  visibility: hidden; }
   .modal__success--icon {
     width: 6rem;
     height: 6rem; }
@@ -156,14 +156,19 @@ body {
   opacity: 0; }
 
 .modal__project {
-  top: 50%;
   max-width: 70rem; }
+  .modal__project--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
 
 .modal__box {
+  padding: 2rem;
+  display: grid;
   grid-template-columns: min-content 1fr;
   align-items: center;
   grid-column-gap: 2rem;
-  grid-row-gap: 1rem; }
+  grid-row-gap: 0.5rem; }
   .modal__box p {
     grid-column: 2 / 3; }
 
@@ -172,8 +177,40 @@ body {
   justify-content: space-between;
   align-items: center; }
 
-.modal__box--active .modal__box {
-  border: 0.3rem solid #147b74; }
+.modal__pledge {
+  grid-column: 1 / -1;
+  border-top: 1.8px solid rgba(122, 122, 122, 0.2);
+  padding: 2rem;
+  justify-content: space-between;
+  display: none; }
+  .modal__pledge--text, .modal__pledge--amount {
+    font-size: 1.6rem;
+    font-family: inherit;
+    border: none;
+    color: #7a7a7a; }
+    .modal__pledge--text:focus, .modal__pledge--amount:focus {
+      outline: none; }
+  .modal__pledge--box {
+    display: flex;
+    align-items: center; }
+  .modal__pledge--amount {
+    width: 5rem;
+    margin: 0 1.3rem; }
+
+.modal--disabled {
+  opacity: 0.5;
+  pointer-events: none; }
+
+.modal__pledge--active {
+  display: flex; }
+
+.modal--active {
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1); }
+
+.modal--overlay-active {
+  opacity: 1;
+  pointer-events: all; }
 
 .header {
   height: 50vh;
@@ -215,13 +252,13 @@ body {
   padding: 5rem; }
 
 .box,
-.modal__box {
-  border: 0.5px solid rgba(122, 122, 122, 0.2);
-  border-radius: 1rem;
-  padding: 3rem;
-  display: grid; }
+.modal__container {
+  border: 1.8px solid rgba(122, 122, 122, 0.2);
+  border-radius: 1rem; }
 
 .box {
+  display: grid;
+  padding: 3rem;
   grid-template-columns: repeat(2, 1fr); }
 
 .product {
@@ -277,3 +314,6 @@ body {
     font-weight: 400;
     color: #7a7a7a;
     margin-left: 1rem; }
+
+.modal__box--active {
+  border: 1.8px solid #147b74; }
