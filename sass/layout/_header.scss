@@ -1,6 +1,7 @@
 .header {
   height: 50vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../../images/image-hero-desktop.jpg") no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-image: url("../../images/image-hero-desktop.jpg");
+  background-position: center;
   background-size: cover;
 }
