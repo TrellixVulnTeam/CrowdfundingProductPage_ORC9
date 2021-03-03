@@ -76,7 +76,7 @@ function incrementAmount() {
     const parent = amt.parentElement.parentElement.parentElement;
     if (parent.classList.contains("modal__box--active")) {
       amountCollected += Number(amt.value);
-      amount.textContent = amountCollected;
+      amount.textContent = `$${amountCollected}`;
     }
     amt.value = "";
   });
