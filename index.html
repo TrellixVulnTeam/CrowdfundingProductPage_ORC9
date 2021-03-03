@@ -27,7 +27,7 @@
         </figure>
         <ul class="navigation__list">
           <li class="navigation__list--item">
-            <a href="www.google.com" class="navigation__list--link"> About </a>
+            <a href="#" class="navigation__list--link"> About </a>
           </li>
           <li class="navigation__list--item">
             <a href="#" class="navigation__list--link"> Discover </a>
@@ -98,6 +98,15 @@
               updates via email.
             </p>
           </div>
+          <form class="modal__pledge js-modal-pledge">
+            <input
+              type="text"
+              name="Pledge"
+              class="modal__pledge--text"
+              placeholder="Enter your pledge"
+            />
+            <button class="btn btn--green js-open-success">Continue</button>
+          </form>
         </div>
         <div class="modal__container mt-sm js-modal-box">
           <div class="modal__box">
@@ -136,10 +145,12 @@
               <input
                 type="number"
                 name="Amount"
-                class="modal__pledge--amount"
+                class="modal__pledge--amount js-amount-given"
+                min="25"
+                max="200"
                 placeholder="25"
               />
-              <button class="btn btn--green">Continue</button>
+              <button class="btn btn--green js-open-success">Continue</button>
             </div>
           </form>
         </div>
@@ -180,10 +191,12 @@
               <input
                 type="number"
                 name="Amount"
-                class="modal__pledge--amount"
+                class="modal__pledge--amount js-amount-given"
+                min="75"
+                max="200"
                 placeholder="75"
               />
-              <button class="btn btn--green">Continue</button>
+              <button class="btn btn--green js-open-success">Continue</button>
             </div>
           </form>
         </div>
@@ -225,24 +238,24 @@
           Monitor Riser worldwide. You will get an email once our campaign is
           completed.
         </p>
-        <button class="btn btn--green mt-md">Got it!</button>
+        <button class="btn btn--green mt-md js-close-success">Got it!</button>
       </div>
-
       <section class="data container">
         <div class="data__amount">
-          <h2 class="heading-2">$89,914</h2>
+          <h2 class="heading-2 js-amount">$89,914</h2>
           <span> of $100,000 backed </span>
         </div>
         <div class="data__backers">
-          <h2 class="heading-2">5,007</h2>
+          <h2 class="heading-2 js-backers">5,007</h2>
           <span> total backers </span>
         </div>
         <div class="data__days">
           <h2 class="heading-2">56</h2>
           <span> days left </span>
         </div>
-        <!-- Need to check -->
-        <div class="progress">Progress Progress Progress</div>
+        <div class="data__progress">
+          <div class="data__progress--done js-progress"></div>
+        </div>
       </section>
       <section class="about container">
         <h3 class="heading-3">About this project</h3>
@@ -268,7 +281,7 @@
           </p>
           <div class="about__btn--box mt-lg">
             <div class="about--left">101 <span>left</span></div>
-            <button class="btn btn--green">Select Reward</button>
+            <button class="btn btn--green js-open-modal">Select Reward</button>
           </div>
         </div>
         <div class="box about__blackEdition mt-md">
@@ -281,7 +294,7 @@
           </p>
           <div class="about__btn--box mt-lg">
             <div class="about--left">64 <span>left</span></div>
-            <button class="btn btn--cyan">Select Reward</button>
+            <button class="btn btn--cyan js-open-modal">Select Reward</button>
           </div>
         </div>
         <div class="box about__specialEdition mt-md">

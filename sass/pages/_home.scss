@@ -71,6 +71,23 @@
   &__backers {
     border-right: 0.5px solid hsla(0, 0%, 48%, 0.719);
   }
+
+  &__progress,
+  &__progress--done {
+    height: 1.6rem;
+    border-radius: 1rem;
+  }
+
+  &__progress {
+    grid-column: 1 / -1;
+    width: 100%;
+    background-color: #eee9e9;
+
+    &--done {
+      width: 70%;
+      background-color: hsl(176, 50%, 47%);
+    }
+  }
 }
 
 // About section
