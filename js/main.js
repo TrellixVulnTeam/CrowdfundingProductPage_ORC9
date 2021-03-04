@@ -8,8 +8,8 @@ const successModal = document.querySelector(".js-modal-success");
 const openModalBtn = document.querySelectorAll(".js-open-modal");
 const closeModalBtn = document.querySelector(".js-close-modal");
 const closeSuccessModalBtn = document.querySelector(".js-close-success");
-const openSuccessModalBtn = document.querySelectorAll(".js-open-success");
 const overlay = document.querySelector(".js-overlay");
+const pledge1Btn = document.querySelector(".js-pledge-1");
 const progressBar = document.querySelector(".js-progress");
 const amount = document.querySelector(".js-amount");
 const backers = document.querySelector(".js-backers");
@@ -17,6 +17,7 @@ const amountGiven = document.querySelectorAll(".js-amount-given");
 
 let backerNumber = 5007;
 let amountCollected = 89914;
+let progress = 70;
 
 // Applying changes to bookmark button
 function bookmarked() {
@@ -40,6 +41,19 @@ function bookmarked() {
     bookmarkBtn.querySelector(".js-bookmark-text").innerText = "Bookmark";
   }
 }
+
+// Open modal
+function openModal() {
+  modal.classList.add("modal--active");
+  overlay.classList.add("modal--overlay-active");
+}
+
+// Close modal
+function closeModal() {
+  modal.classList.remove("modal--active");
+  overlay.classList.remove("modal--overlay-active");
+}
+
 // Applying changes to Modal
 function activeModal() {
   btnRadio.forEach((btn) => {
@@ -65,6 +79,18 @@ function activeModal() {
   });
 }
 
+// Open success Modal
+function openSuccessModal() {
+  successModal.classList.add("modal--active");
+  overlay.classList.add("modal--overlay-active");
+}
+
+// close Success Modal
+function closeSuccessModal() {
+  successModal.classList.remove("modal--active");
+  overlay.classList.remove("modal--overlay-active");
+}
+
 // Incrementing backers
 function incrementBackers() {
   backerNumber++;
@@ -74,34 +100,74 @@ function incrementBackers() {
 function incrementAmount() {
   amountGiven.forEach((amt) => {
     const parent = amt.parentElement.parentElement.parentElement;
-    if (parent.classList.contains("modal__box--active")) {
-      amountCollected += Number(amt.value);
-      amount.textContent = `$${amountCollected}`;
+    const pledge2Btn = parent.querySelector(".js-pledge-2");
+    const pledge3Btn = parent.querySelector(".js-pledge-3");
+
+    if (amountCollected === 100000) {
+      amountCollected = 89914;
+    } else {
+      if (parent.classList.contains("modal__box--active")) {
+        if (parent.contains(pledge2Btn)) {
+          if (
+            Number(amt.value) === "" ||
+            Number(amt.value) < 25 ||
+            Number(amt.value) > 20000
+          ) {
+            alert("Minimum amount is $25 and maximum is $200");
+          } else if (Number(amt.value) >= 25) {
+            amountCollected += Number(amt.value);
+            amount.textContent = `$${amountCollected}`;
+            incrementBackers();
+            incrementProgress();
+            closeModal();
+            openSuccessModal();
+            if (amountCollected >= 10000) {
+              amountCollected = 89914;
+            }
+          }
+        } else if (parent.contains(pledge3Btn)) {
+          if (
+            Number(amt.value) === "" ||
+            Number(amt.value) < 75 ||
+            Number(amt.value) > 20000
+          ) {
+            alert("Minimum amount is $75 and maximum is $200");
+          } else if (Number(amt.value) >= 75) {
+            amountCollected += Number(amt.value);
+            amount.textContent = `$${amountCollected}`;
+            incrementBackers();
+            incrementProgress();
+            closeModal();
+            openSuccessModal();
+            if (amountCollected >= 10000) {
+              amountCollected = 89914;
+            }
+          }
+        }
+      }
     }
+
     amt.value = "";
   });
 }
 
-// Open modal
-function openModal() {
-  modal.classList.add("modal--active");
-  overlay.classList.add("modal--overlay-active");
+// incrementing progress bar
+function incrementProgress() {
+  progress += 10;
+  if (progress === 100) {
+    progress = 70;
+  } else {
+    progressBar.style.width = `${progress}%`;
+  }
 }
 
-// Open success Modal
-function openSuccessModal() {
-  successModal.classList.add("modal--active");
-}
-
-// Close modal
-function closeModal() {
-  modal.classList.remove("modal--active");
-  overlay.classList.remove("modal--overlay-active");
-}
-
-// close Success Modal
-function closeSuccessModal() {
-  successModal.classList.remove("modal--active");
+// Setting modal to default after closing
+function resetDefaultModal() {
+  modalBox.forEach((box) => box.classList.remove("modal__box--active"));
+  btnRadio.forEach((btn) => (btn.checked = false));
+  document
+    .querySelectorAll(".js-modal-pledge")
+    .forEach((pledge) => pledge.classList.remove("modal__pledge--active"));
 }
 
 // Event Handlers
@@ -116,26 +182,39 @@ modalBox.forEach((modal) => {
 });
 
 openModalBtn.forEach((btn) => btn.addEventListener("click", openModal));
-closeModalBtn.addEventListener("click", closeModal);
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    closeModal();
-  }
-});
-overlay.addEventListener("click", function (e) {
+closeModalBtn.addEventListener("click", () => {
   closeModal();
+  resetDefaultModal();
 });
 
+pledge1Btn.addEventListener("click", () => {
+  incrementBackers();
+  incrementProgress();
+  closeModal();
+  openSuccessModal();
+});
+
+const openSuccessModalBtn = document.querySelectorAll(".js-open-success");
+
 openSuccessModalBtn.forEach((btn) =>
-  btn.addEventListener("click", function (e) {
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
-    closeModal();
-    openSuccessModal();
-    incrementBackers();
     incrementAmount();
   })
 );
 
 closeSuccessModalBtn.addEventListener("click", () => {
+  closeSuccessModal();
+  resetDefaultModal();
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeModal();
+    closeSuccessModal();
+  }
+});
+overlay.addEventListener("click", function (e) {
+  closeModal();
   closeSuccessModal();
 });

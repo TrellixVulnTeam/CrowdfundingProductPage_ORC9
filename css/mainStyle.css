@@ -194,7 +194,7 @@ body {
     display: flex;
     align-items: center; }
   .modal__pledge--amount {
-    width: 5rem;
+    width: 6rem;
     margin: 0 1.3rem; }
 
 .modal--disabled {
