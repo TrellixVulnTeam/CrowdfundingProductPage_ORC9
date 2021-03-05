@@ -111,7 +111,7 @@ function incrementAmount() {
           if (
             Number(amt.value) === "" ||
             Number(amt.value) < 25 ||
-            Number(amt.value) > 20000
+            Number(amt.value) > 200
           ) {
             alert("Minimum amount is $25 and maximum is $200");
           } else if (Number(amt.value) >= 25) {
@@ -129,7 +129,7 @@ function incrementAmount() {
           if (
             Number(amt.value) === "" ||
             Number(amt.value) < 75 ||
-            Number(amt.value) > 20000
+            Number(amt.value) > 200
           ) {
             alert("Minimum amount is $75 and maximum is $200");
           } else if (Number(amt.value) >= 75) {

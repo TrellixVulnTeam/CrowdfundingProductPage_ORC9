@@ -46,6 +46,10 @@
   &__project {
     max-width: 70rem;
 
+    @media only screen and (max-width: 40em) {
+      max-width: 55rem;
+    }
+
     &--header {
       display: flex;
       justify-content: space-between;
