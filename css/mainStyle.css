@@ -334,6 +334,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  @media only screen and (max-width: 32em) {
+    .about__btn--box {
+      flex-direction: column;
+      align-items: flex-start; } }
+  @media only screen and (max-width: 32em) {
+    .about__btn--box > .btn {
+      margin-top: 1.5rem; } }
 
 .about__header {
   display: flex;

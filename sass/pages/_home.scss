@@ -125,6 +125,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (max-width: 32em) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    & > .btn {
+      @media only screen and (max-width: 32em) {
+        margin-top: 1.5rem;
+      }
+    }
   }
 
   &__header {
