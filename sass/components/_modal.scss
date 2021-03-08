@@ -9,7 +9,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    z-index: 10;
+    z-index: 20;
     transition: all 0.3s;
     // This will hide modal
     visibility: hidden;
@@ -38,7 +38,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: 5;
+    z-index: 10;
     // This will hide overlay
     opacity: 0;
   }
@@ -47,7 +47,9 @@
     max-width: 70rem;
 
     @media only screen and (max-width: 40em) {
-      max-width: 55rem;
+      max-height: 80vh;
+      max-width: 80vw;
+      overflow-y: scroll;
     }
 
     &--header {
@@ -60,29 +62,60 @@
   &__box {
     padding: 2rem;
     display: grid;
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: min-content 1fr min-content;
     align-items: center;
-    grid-column-gap: 2rem;
-    grid-row-gap: 0.5rem;
+    grid-gap: 1rem;
+
+    @media only screen and (max-width: 32em) {
+      grid-template-columns: min-content 1fr;
+      justify-items: start;
+    }
 
     p {
-      grid-column: 2 / 3;
+      grid-column: 2 / 4;
+
+      @media only screen and (max-width: 32em) {
+        grid-column: 1 / -1;
+      }
     }
   }
 
   &__header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+
+    @media only screen and (max-width: 32em) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    & span {
+      margin-left: 2rem;
+      @media only screen and (max-width: 32em) {
+        margin-left: 0;
+      }
+    }
   }
 
   &__pledge {
     grid-column: 1 / -1;
     border-top: 1.8px solid hsla(0, 0%, 48%, 0.2);
+    grid-template-columns: repeat(2, 1fr);
     padding: 2rem;
-    justify-content: space-between;
     // This will hide pledge section
     display: none;
+
+    @media only screen and (max-width: 32em) {
+      grid-row-gap: 2rem;
+      justify-items: center;
+    }
+
+    &--text {
+      @media only screen and (max-width: 32em) {
+        grid-column: 1 / -1;
+      }
+    }
 
     &--text,
     &--amount {
@@ -99,11 +132,23 @@
     &--box {
       display: flex;
       align-items: center;
+      justify-self: end;
+
+      @media only screen and (max-width: 32em) {
+        justify-self: center;
+        grid-column: 1 / -1;
+      }
     }
 
     &--amount {
       width: 6rem;
       margin: 0 1.3rem;
+    }
+  }
+
+  &__about--left {
+    @media only screen and (max-width: 32em) {
+      grid-area: 3 / 1 / 4 / -1;
     }
   }
 
@@ -114,7 +159,7 @@
 
   // Javascript classes to activate modals
   &__pledge--active {
-    display: flex;
+    display: grid;
   }
 
   &--active {

@@ -69,6 +69,10 @@ body {
   font-size: 1.7rem;
   cursor: pointer;
   transition: background-color 0.2s; }
+  @media only screen and (max-width: 30em) {
+    .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.5rem; } }
   .btn:focus, .btn--radio:focus {
     outline: none; }
   .btn--green {
@@ -135,7 +139,7 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 10;
+  z-index: 20;
   transition: all 0.3s;
   visibility: hidden;
   transform: translate(-50%, -50%) scale(0); }
@@ -159,14 +163,16 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 5;
+  z-index: 10;
   opacity: 0; }
 
 .modal__project {
   max-width: 70rem; }
   @media only screen and (max-width: 40em) {
     .modal__project {
-      max-width: 55rem; } }
+      max-height: 80vh;
+      max-width: 80vw;
+      overflow-y: scroll; } }
   .modal__project--header {
     display: flex;
     justify-content: space-between;
@@ -175,24 +181,46 @@ body {
 .modal__box {
   padding: 2rem;
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: min-content 1fr min-content;
   align-items: center;
-  grid-column-gap: 2rem;
-  grid-row-gap: 0.5rem; }
+  grid-gap: 1rem; }
+  @media only screen and (max-width: 32em) {
+    .modal__box {
+      grid-template-columns: min-content 1fr;
+      justify-items: start; } }
   .modal__box p {
-    grid-column: 2 / 3; }
+    grid-column: 2 / 4; }
+    @media only screen and (max-width: 32em) {
+      .modal__box p {
+        grid-column: 1 / -1; } }
 
 .modal__header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center; }
+  @media only screen and (max-width: 32em) {
+    .modal__header {
+      flex-direction: column;
+      align-items: flex-start; } }
+  .modal__header span {
+    margin-left: 2rem; }
+    @media only screen and (max-width: 32em) {
+      .modal__header span {
+        margin-left: 0; } }
 
 .modal__pledge {
   grid-column: 1 / -1;
   border-top: 1.8px solid rgba(122, 122, 122, 0.2);
+  grid-template-columns: repeat(2, 1fr);
   padding: 2rem;
-  justify-content: space-between;
   display: none; }
+  @media only screen and (max-width: 32em) {
+    .modal__pledge {
+      grid-row-gap: 2rem;
+      justify-items: center; } }
+  @media only screen and (max-width: 32em) {
+    .modal__pledge--text {
+      grid-column: 1 / -1; } }
   .modal__pledge--text, .modal__pledge--amount {
     font-size: 1.6rem;
     font-family: inherit;
@@ -202,17 +230,26 @@ body {
       outline: none; }
   .modal__pledge--box {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    justify-self: end; }
+    @media only screen and (max-width: 32em) {
+      .modal__pledge--box {
+        justify-self: center;
+        grid-column: 1 / -1; } }
   .modal__pledge--amount {
     width: 6rem;
     margin: 0 1.3rem; }
+
+@media only screen and (max-width: 32em) {
+  .modal__about--left {
+    grid-area: 3 / 1 / 4 / -1; } }
 
 .modal--disabled {
   opacity: 0.5;
   pointer-events: none; }
 
 .modal__pledge--active {
-  display: flex; }
+  display: grid; }
 
 .modal--active {
   visibility: visible;
@@ -228,10 +265,15 @@ body {
   background-size: cover; }
 
 .navigation {
+  position: relative;
   padding: 3rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .navigation__icon-menu {
+    width: 3rem;
+    height: 3rem;
+    display: none; }
   .navigation__list {
     display: flex;
     align-items: center; }

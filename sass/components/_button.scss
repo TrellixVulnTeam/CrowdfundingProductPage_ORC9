@@ -8,6 +8,11 @@
   cursor: pointer;
   transition: background-color 0.2s;
 
+  @media only screen and (max-width: 30em) {
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem;
+  }
+
   &:focus,
   &--radio:focus {
     outline: none;
