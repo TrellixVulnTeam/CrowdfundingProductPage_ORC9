@@ -171,7 +171,7 @@ function incrementAmount() {
 
 // incrementing progress bar
 function incrementProgress() {
-  progress += 10;
+  progress += 2;
   if (progress === 100) {
     progress = 70;
   } else {
