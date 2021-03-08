@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
     <link
       rel="icon"
       type="image/png"
@@ -21,14 +20,18 @@
   </head>
   <body>
     <header class="header">
+      <!-- Navigation -->
       <nav class="navigation">
         <figure class="navigation__logo-box">
           <img src="images/logo.svg" alt="logo" class="navigation--logo" />
         </figure>
-        <svg class="navigation__icon-menu">
+        <svg class="navigation__icon-menu-open js-btn-menu-open">
+          <use xlink:href="images/sprite.svg#icon-hamburger"></use>
+        </svg>
+        <svg class="navigation__icon-menu-close js-btn-menu-close">
           <use xlink:href="images/sprite.svg#icon-close-menu"></use>
         </svg>
-        <ul class="navigation__list">
+        <ul class="navigation__list js-menu">
           <li class="navigation__list--item">
             <a href="#" class="navigation__list--link"> About </a>
           </li>
@@ -226,7 +229,8 @@
           </div>
         </div>
       </section>
-      <div class="modal__success js-modal-success">
+      <!-- Success modal -->
+      <section class="modal__success js-modal-success">
         <svg class="modal__success--icon">
           <use xlink:href="images/sprite.svg#icon-check"></use>
         </svg>
@@ -237,7 +241,7 @@
           completed.
         </p>
         <button class="btn btn--green mt-md js-close-success">Got it!</button>
-      </div>
+      </section>
       <section class="data container">
         <div class="data__amount">
           <h2 class="heading-2 js-amount">$89,914</h2>

@@ -163,7 +163,7 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 10;
+  z-index: 5;
   opacity: 0; }
 
 .modal__project {
@@ -265,28 +265,63 @@ body {
   background-size: cover; }
 
 .navigation {
-  position: relative;
   padding: 3rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  .navigation__icon-menu {
+  @media only screen and (max-width: 32em) {
+    .navigation {
+      position: relative;
+      z-index: 10;
+      padding: 3rem; } }
+  .navigation__icon-menu-open, .navigation__icon-menu-close {
     width: 3rem;
     height: 3rem;
-    display: none; }
+    display: none;
+    cursor: pointer; }
+  @media only screen and (max-width: 32em) {
+    .navigation__icon-menu-open {
+      display: block; } }
   .navigation__list {
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 32em) {
+      .navigation__list {
+        background-color: #fff;
+        width: 80%;
+        border-radius: 0.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        bottom: -26rem;
+        left: 10%;
+        z-index: 10;
+        transition: transform 0.3s;
+        visibility: hidden;
+        transform: scale(0); } }
     .navigation__list--item:not(:last-of-type) {
       padding-right: 3rem; }
+      @media only screen and (max-width: 32em) {
+        .navigation__list--item:not(:last-of-type) {
+          border-bottom: 1px solid rgba(122, 122, 122, 0.335); } }
+    @media only screen and (max-width: 32em) {
+      .navigation__list--item {
+        padding: 3rem;
+        width: 100%; } }
     .navigation__list--link:link, .navigation__list--link:visited {
       font-size: 1.8rem;
       font-weight: 600;
       text-decoration: none;
       color: #fff;
       transition: color 0.2s; }
+      @media only screen and (max-width: 32em) {
+        .navigation__list--link:link, .navigation__list--link:visited {
+          color: #000; } }
     .navigation__list--link:hover {
       color: #3cb4ac; }
+  .navigation--active {
+    visibility: visible;
+    transform: scale(1); }
 
 .main {
   display: grid;
@@ -319,7 +354,8 @@ body {
   .product__logo-box {
     position: absolute;
     top: -3rem;
-    left: 45%; }
+    left: 45%;
+    width: 10%; }
   .product__btn-container {
     display: flex;
     justify-content: space-between;

@@ -14,6 +14,9 @@ const progressBar = document.querySelector(".js-progress");
 const amount = document.querySelector(".js-amount");
 const backers = document.querySelector(".js-backers");
 const amountGiven = document.querySelectorAll(".js-amount-given");
+const btnOpenMenu = document.querySelector(".js-btn-menu-open");
+const btnCloseMenu = document.querySelector(".js-btn-menu-close");
+const menu = document.querySelector(".js-menu");
 
 let backerNumber = 5007;
 let amountCollected = 89914;
@@ -91,6 +94,22 @@ function closeSuccessModal() {
   overlay.classList.remove("modal--overlay-active");
 }
 
+// Opening menu
+function openMenu() {
+  overlay.classList.add("modal--overlay-active");
+  menu.classList.add("navigation--active");
+  btnOpenMenu.style.display = "none";
+  btnCloseMenu.style.display = "block";
+}
+
+// Closing menu
+function closeMenu() {
+  overlay.classList.remove("modal--overlay-active");
+  menu.classList.remove("navigation--active");
+  btnOpenMenu.style.display = "block";
+  btnCloseMenu.style.display = "none";
+}
+
 // Incrementing backers
 function incrementBackers() {
   backerNumber++;
@@ -146,7 +165,6 @@ function incrementAmount() {
         }
       }
     }
-
     amt.value = "";
   });
 }
@@ -212,9 +230,18 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     closeModal();
     closeSuccessModal();
+    if (menu.classList.contains("navigation--active")) {
+      closeMenu();
+    }
   }
 });
 overlay.addEventListener("click", function (e) {
   closeModal();
   closeSuccessModal();
+  if (menu.classList.contains("navigation--active")) {
+    closeMenu();
+  }
 });
+
+btnOpenMenu.addEventListener("click", openMenu);
+btnCloseMenu.addEventListener("click", closeMenu);
