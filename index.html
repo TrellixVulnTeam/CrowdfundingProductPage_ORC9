@@ -116,6 +116,7 @@
                 class="btn--radio"
               />
               <span></span>
+              <p class="scr-only">Pledge button</p>
             </button>
             <div class="modal__header">
               <h4 class="heading-4">Bamboo Stand</h4>
@@ -131,20 +132,24 @@
             </p>
           </div>
           <form class="modal__pledge js-modal-pledge">
+            <label for="pledge-text" class="scr-only">pledge-text</label>
             <input
               type="text"
               name="Pledge"
               class="modal__pledge--text"
               placeholder="Enter your pledge"
+              id="pledge-text"
             />
             <div class="modal__pledge--box">
               <span>$</span>
+              <label for="pledge-amount" class="scr-only">pledge-amount</label>
               <input
                 type="number"
                 name="Amount"
                 class="modal__pledge--amount js-amount-given"
                 min="25"
                 max="200"
+                id="pledge-amount"
                 placeholder="25"
               />
               <button class="btn btn--green js-open-success js-pledge-2">
@@ -164,6 +169,7 @@
                 class="btn--radio"
               />
               <span></span>
+              <p class="scr-only">Pledge button</p>
             </button>
             <div class="modal__header">
               <h4 class="heading-4">Black Edition Stand</h4>
@@ -179,14 +185,17 @@
             </p>
           </div>
           <form class="modal__pledge js-modal-pledge">
+            <label for="pledge-text" class="scr-only">pledge-text</label>
             <input
               type="text"
               name="Pledge"
               class="modal__pledge--text"
               placeholder="Enter your pledge"
+              id="pledge-text"
             />
             <div class="modal__pledge--box">
               <span>$</span>
+              <label for="pledge-amount" class="scr-only">pledge-amount</label>
               <input
                 type="number"
                 name="Amount"
@@ -194,6 +203,7 @@
                 min="75"
                 max="200"
                 placeholder="75"
+                id="pledge-amount"
               />
               <button class="btn btn--green js-open-success js-pledge-3">
                 Continue

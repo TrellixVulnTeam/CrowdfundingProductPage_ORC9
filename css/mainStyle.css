@@ -449,3 +449,9 @@ body {
 
 .modal__box--active {
   border: 1.8px solid #147b74; }
+
+.scr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: -1000000px; }

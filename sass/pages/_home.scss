@@ -178,3 +178,12 @@
 .modal__box--active {
   border: 1.8px solid hsl(176, 72%, 28%);
 }
+
+// Screen reader only
+
+.scr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: -1000000px;
+}
