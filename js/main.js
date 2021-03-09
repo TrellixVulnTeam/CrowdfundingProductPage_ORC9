@@ -1,6 +1,5 @@
 "use strict";
 const bookmarkBtn = document.querySelector(".js-bookmark");
-const pledgeBtn = document.querySelectorAll(".js-pledge-btn");
 const btnRadio = document.querySelectorAll(".btn--radio");
 const modal = document.querySelector(".js-modal");
 const modalBox = document.querySelectorAll(".js-modal-box");
