@@ -350,7 +350,7 @@ body {
 
 .product {
   text-align: center;
-  transform: translateY(-8rem); }
+  transform: translateY(-12rem); }
   .product__logo-box {
     position: absolute;
     top: -3rem;
@@ -375,7 +375,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
   text-align: left;
-  margin: -5rem 0 3rem 0; }
+  margin: -9rem 0 3rem 0; }
   @media only screen and (max-width: 32em) {
     .data {
       place-items: center;
