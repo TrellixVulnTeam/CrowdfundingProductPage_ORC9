@@ -54,12 +54,6 @@ body {
 .mt-lg {
   margin-top: 3.5rem; }
 
-.mt-hg {
-  margin-top: 5rem; }
-
-.ml-sm {
-  margin-left: 1.5rem; }
-
 .btn {
   border: none;
   padding: 1.5rem 3.5rem;
@@ -323,6 +317,12 @@ body {
     visibility: visible;
     transform: scale(1); }
 
+.active {
+  display: inline-block; }
+
+.not-active {
+  display: none; }
+
 .main {
   display: grid;
   place-items: center;
@@ -336,7 +336,7 @@ body {
   border: 1px solid rgba(122, 122, 122, 0.2);
   border-radius: 1rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
-  padding: 5rem; }
+  padding: 4rem; }
 
 .box,
 .modal__container {
@@ -350,7 +350,7 @@ body {
 
 .product {
   text-align: center;
-  transform: translateY(-12rem); }
+  transform: translateY(-14rem); }
   .product__logo-box {
     position: absolute;
     top: -3rem;
@@ -375,7 +375,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
   text-align: left;
-  margin: -9rem 0 3rem 0; }
+  margin: -11rem 0 3rem 0; }
   @media only screen and (max-width: 32em) {
     .data {
       place-items: center;

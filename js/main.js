@@ -9,13 +9,9 @@ const closeModalBtn = document.querySelector(".js-close-modal");
 const closeSuccessModalBtn = document.querySelector(".js-close-success");
 const overlay = document.querySelector(".js-overlay");
 const pledge1Btn = document.querySelector(".js-pledge-1");
-const progressBar = document.querySelector(".js-progress");
-const amount = document.querySelector(".js-amount");
-const backers = document.querySelector(".js-backers");
-const amountGiven = document.querySelectorAll(".js-amount-given");
+const menu = document.querySelector(".js-menu");
 const btnOpenMenu = document.querySelector(".js-btn-menu-open");
 const btnCloseMenu = document.querySelector(".js-btn-menu-close");
-const menu = document.querySelector(".js-menu");
 
 let backerNumber = 5007;
 let amountCollected = 89914;
@@ -97,26 +93,28 @@ function closeSuccessModal() {
 function openMenu() {
   overlay.classList.add("modal--overlay-active");
   menu.classList.add("navigation--active");
-  btnOpenMenu.style.display = "none";
-  btnCloseMenu.style.display = "block";
+  if (menu.classList.contains("navigation--active")) {
+    btnCloseMenu.classList.add("active");
+    btnOpenMenu.classList.add("not-active");
+  }
 }
 
 // Closing menu
 function closeMenu() {
   overlay.classList.remove("modal--overlay-active");
   menu.classList.remove("navigation--active");
-  btnOpenMenu.style.display = "block";
-  btnCloseMenu.style.display = "none";
+  btnCloseMenu.classList.remove("active");
+  btnOpenMenu.classList.remove("not-active");
 }
 
 // Incrementing backers
 function incrementBackers() {
   backerNumber++;
-  backers.textContent = backerNumber;
+  document.querySelector(".js-backers").textContent = backerNumber;
 }
 // Incrementing amount
 function incrementAmount() {
-  amountGiven.forEach((amt) => {
+  document.querySelectorAll(".js-amount-given").forEach((amt) => {
     const parent = amt.parentElement.parentElement.parentElement;
     const pledge2Btn = parent.querySelector(".js-pledge-2");
     const pledge3Btn = parent.querySelector(".js-pledge-3");
@@ -125,6 +123,8 @@ function incrementAmount() {
       amountCollected = 89914;
     } else {
       if (parent.classList.contains("modal__box--active")) {
+        const amount = document.querySelector(".js-amount");
+
         if (parent.contains(pledge2Btn)) {
           if (
             Number(amt.value) === "" ||
@@ -174,7 +174,7 @@ function incrementProgress() {
   if (progress === 100) {
     progress = 70;
   } else {
-    progressBar.style.width = `${progress}%`;
+    document.querySelector(".js-progress").style.width = `${progress}%`;
   }
 }
 

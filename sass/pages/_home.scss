@@ -13,7 +13,7 @@
   border: 1px solid hsla(0, 0%, 48%, 0.2);
   border-radius: 1rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
-  padding: 5rem;
+  padding: 4rem;
 }
 
 // Box and modal-box for all
@@ -32,7 +32,7 @@
 // Product Section
 .product {
   text-align: center;
-  transform: translateY(-12rem);
+  transform: translateY(-14rem);
 
   &__logo-box {
     position: absolute;
@@ -66,7 +66,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
   text-align: left;
-  margin: -9rem 0 3rem 0;
+  margin: -11rem 0 3rem 0;
 
   @media only screen and (max-width: 32em) {
     place-items: center;

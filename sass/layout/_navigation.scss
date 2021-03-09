@@ -82,3 +82,11 @@
     transform: scale(1);
   }
 }
+
+// Helper classes
+.active {
+  display: inline-block;
+}
+.not-active {
+  display: none;
+}
