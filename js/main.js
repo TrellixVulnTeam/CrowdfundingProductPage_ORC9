@@ -22,7 +22,7 @@ function bookmarked() {
   bookmarkBtn.classList.toggle("btn--bookmarked");
 
   if (bookmarkBtn.classList.contains("btn--bookmarked")) {
-    //   changing icon
+    // changing icon
     bookmarkBtn
       .querySelector(".js-bookmarked")
       .setAttribute("href", "images/sprite.svg#icon-bookmarked");
@@ -30,7 +30,7 @@ function bookmarked() {
     // changing text
     bookmarkBtn.querySelector(".js-bookmark-text").innerText = "Bookmarked";
   } else {
-    //   changing icon
+    // changing icon
     bookmarkBtn
       .querySelector(".js-bookmarked")
       .setAttribute("href", "images/sprite.svg#icon-bookmark");
